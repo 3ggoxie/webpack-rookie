@@ -1,12 +1,25 @@
-module.exports={
-    //入口
-entry:'./src/main.js'
-    // 出口
+const path = require("path"); //node.js核心模块，专门用来处理路径问题
 
-    // 加载器
+module.exports = {
+  //入口
+  entry: "./src/main.js",
+  // 出口
+  //__dirname是 node.js 的变量，代表当前文件所在的文件夹目录
+  output: {
+    path: path.resolve(__dirname, "dist"), //绝对路径
+    filename: "main.js",
+  },
+  // 加载器
+  module: {
+    rules: [
+      //loader的配置
+    ],
+  },
+  // 插件
+  plugins: [
+    //plugin的配置
+  ],
 
-    // 插件
-
-    // 模式
-
-}
+  // 模式
+  mode: "development",
+};
