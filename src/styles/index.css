@@ -1,5 +1,6 @@
 .box1 {
   width: 100px;
   height: 100px;
-  background: pink;
+  background-image: url("../images/turtle_min.jpg");
+  background-size: cover;
 }

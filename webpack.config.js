@@ -46,6 +46,17 @@ module.exports = {
           "stylus-loader", // 将 Stylus 文件编译为 CSS
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|webp|jfif|svg)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            //小于60kb的图片转base64
+            //特点：减少请求数量，但体积会大一点
+            maxSize: 60 * 1024, // 60kb
+          },
+        },
+      },
     ],
   },
   // 插件
