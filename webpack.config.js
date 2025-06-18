@@ -3,11 +3,14 @@ const path = require("path"); //node.js核心模块，专门用来处理路径�
 module.exports = {
   //入口
   entry: "./src/main.js",
-  // 出口
+  // 出口,所有文件的输出路径
   //__dirname是 node.js 的变量，代表当前文件所在的文件夹目录
   output: {
     path: path.resolve(__dirname, "dist"), //绝对路径
-    filename: "main.js",
+    //入口文件打包输出文件名
+    filename: "static/js/main.js",
+    //自动清空上次打包内容：打包前清空整个path目录，再执行打包
+    clean: true,
   },
   // 加载器
   module: {
@@ -55,6 +58,11 @@ module.exports = {
             //特点：减少请求数量，但体积会大一点
             maxSize: 60 * 1024, // 60kb
           },
+        },
+        generator: {
+          //输出图片名称
+          //[hash:10] hash值取前10位
+          filename: "static/images/[hash:10][ext][query]",
         },
       },
     ],
