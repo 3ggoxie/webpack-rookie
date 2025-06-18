@@ -42,7 +42,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.styl$/,
+        test: /\.styl$/i,
         use: [
           "style-loader",
           "css-loader",
@@ -50,7 +50,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|webp|jfif|svg)$/,
+        test: /\.(png|jpe?g|gif|webp|jfif|svg)$/i,
         type: "asset",
         parser: {
           dataUrlCondition: {
@@ -63,6 +63,14 @@ module.exports = {
           //输出图片名称
           //[hash:10] hash值取前10位
           filename: "static/images/[hash:10][ext][query]",
+        },
+      },
+      {
+        test: /\.(woff2?|ttf)$/i,
+        type: "asset/resource",
+        generator: {
+          //输出字体名称
+          filename: "static/media/[hash:10][ext][query]",
         },
       },
     ],

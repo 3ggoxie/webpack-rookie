@@ -6,6 +6,7 @@ import "./styles/index.less";
 import "./styles/index.scss";
 import "./styles/index.sass";
 import "./styles/index.styl";
+import "./styles/iconfont.css";
 
 console.log(count(2, 1));
 console.log(sum(1, 2, 3, 4));
