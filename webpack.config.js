@@ -66,10 +66,10 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff2?|ttf)$/i,
+        test: /\.(woff2?|ttf|mp4|mp3|avi)$/i,
         type: "asset/resource",
         generator: {
-          //输出字体名称
+          //输出名称
           filename: "static/media/[hash:10][ext][query]",
         },
       },
