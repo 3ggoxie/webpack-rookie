@@ -30,6 +30,14 @@ module.exports = {
           "less-loader", //将less编译成css
         ], //use可以使用多个loader
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader", // 将 Sass 编译成 CSS
+        ],
+      },
     ],
   },
   // 插件
