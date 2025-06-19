@@ -74,6 +74,14 @@ module.exports = {
           filename: "static/media/[hash:10][ext][query]",
         },
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/, //排除node module下的文件 不然太慢
+        loader: "babel-loader",
+        // options: {
+        //   presets: ["@babel/preset-env"],
+        // },
+      },
     ],
   },
   // 插件
