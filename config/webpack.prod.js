@@ -25,6 +25,16 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, //提取css成单独的文件
           "css-loader", //将css资源编译成commonjs的模块到js中
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  "postcss-preset-env", //能解决大多数样式兼容性问题
+                ],
+              },
+            },
+          },
         ],
       },
       {
@@ -33,6 +43,16 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  "postcss-preset-env", //能解决大多数样式兼容性问题
+                ],
+              },
+            },
+          },
           "less-loader", //将less编译成css
         ], //use可以使用多个loader
       },
@@ -41,6 +61,16 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  "postcss-preset-env", //能解决大多数样式兼容性问题
+                ],
+              },
+            },
+          },
           "sass-loader", // 将 Sass 编译成 CSS
         ],
       },
@@ -49,6 +79,16 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  "postcss-preset-env", //能解决大多数样式兼容性问题
+                ],
+              },
+            },
+          },
           "stylus-loader", // 将 Stylus 文件编译为 CSS
         ],
       },
