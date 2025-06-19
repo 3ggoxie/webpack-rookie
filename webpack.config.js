@@ -12,7 +12,7 @@ module.exports = {
     //入口文件打包输出文件名
     filename: "static/js/main.js",
     //自动清空上次打包内容：打包前清空整个path目录，再执行打包
-    clean: true,
+    // clean: true,//开发模式本来就没有输出
   },
   // 加载器
   module: {
