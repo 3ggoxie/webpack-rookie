@@ -23,13 +23,38 @@
       //   console.log(`被调用${++a}次`);
       // }
       //闭包可以私有化变量 防止外部修改变量
-      function logCountClosure() {
-        let i = 0;
-        return function fn() {
-          console.log(`被调用${++i}次`);
-        };
+      // function logCountClosure() {
+      //   let i = 0;
+      //   return function fn() {
+      //     console.log(`被调用${++i}次`);
+      //   };
+      // }
+      // const logC = logCountClosure();
+
+      //this指向window
+      console.log(this);
+
+      //普通函数指向window
+      function fn() {
+        console.log(this); //this指向函数的调用者 window.fn()
       }
-      const logC = logCountClosure();
+      fn();
+
+      //对象中的this
+      const obj = {
+        name: "sdfa",
+        say: function () {
+          console.log(this);
+        },
+      };
+
+      obj.say();
+
+      //箭头函数本身没有this 他的this会沿着作用域链的上一层寻找this
+      const ffn = () => {
+        console.log(this);
+      };
+      ffn();
     </script>
     <!-- 手动引入改为使用插件自动引入 -->
     <!-- <script src="../dist/static/js/main.js"></script> -->
