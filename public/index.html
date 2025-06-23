@@ -17,6 +17,20 @@
     <span class="iconfont icon-bingtu"></span>
     <span class="iconfont icon-bijiben"></span>
     <span class="iconfont icon-tiaojie"></span>
+    <script>
+      // let a = 0;
+      // function logp() {
+      //   console.log(`被调用${++a}次`);
+      // }
+      //闭包可以私有化变量 防止外部修改变量
+      function logCountClosure() {
+        let i = 0;
+        return function fn() {
+          console.log(`被调用${++i}次`);
+        };
+      }
+      const logC = logCountClosure();
+    </script>
     <!-- 手动引入改为使用插件自动引入 -->
     <!-- <script src="../dist/static/js/main.js"></script> -->
   </body>

@@ -1,12 +1,17 @@
-import count from "./scripts/count";
-import sum from "./scripts/sum";
+// import count from "./scripts/count";
+// import sum from "./scripts/sum";
+import logCountClosure from "./scripts/closure";
 //想要webpack打包，必须引入该资源
-import "./styles/index.css";
-import "./styles/index.less";
-import "./styles/index.scss";
-import "./styles/index.sass";
-import "./styles/index.styl";
-import "./styles/iconfont.css";
+// import "./styles/index.css";
+// import "./styles/index.less";
+// import "./styles/index.scss";
+// import "./styles/index.sass";
+// import "./styles/index.styl";
+// import "./styles/iconfont.css";
 
-console.log(count(2, 1));
-console.log(sum(1, 2, 3, 4));
+// console.log(count(2, 1));
+// console.log(sum(1, 2, 3, 4));
+const logC = logCountClosure();
+function a() {
+  console.log("sfhdhf");
+}
