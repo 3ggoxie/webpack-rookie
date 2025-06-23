@@ -1,5 +1,5 @@
 // import count from "./scripts/count";
-// import sum from "./scripts/sum";
+import ultraSum from "./scripts/sum";
 import logCountClosure from "./scripts/closure";
 //想要webpack打包，必须引入该资源
 // import "./styles/index.css";
@@ -11,7 +11,9 @@ import logCountClosure from "./scripts/closure";
 
 // console.log(count(2, 1));
 // console.log(sum(1, 2, 3, 4));
-const logC = logCountClosure();
-function a() {
-  console.log("sfhdhf");
-}
+// const logC = logCountClosure();
+// function a() {
+//   console.log("sfhdhf");
+// }
+
+ultraSum(1, 2, 3);
