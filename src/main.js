@@ -1,6 +1,6 @@
 // import count from "./scripts/count";
-import ultraSum from "./scripts/sum";
-import logCountClosure from "./scripts/closure";
+// import ultraSum from "./scripts/sum";
+// import logCountClosure from "./scripts/closure";
 //想要webpack打包，必须引入该资源
 // import "./styles/index.css";
 // import "./styles/index.less";
@@ -8,6 +8,7 @@ import logCountClosure from "./scripts/closure";
 // import "./styles/index.sass";
 // import "./styles/index.styl";
 // import "./styles/iconfont.css";
+import rforEach from "./scripts/forEach";
 
 // console.log(count(2, 1));
 // console.log(sum(1, 2, 3, 4));
@@ -16,4 +17,5 @@ import logCountClosure from "./scripts/closure";
 //   console.log("sfhdhf");
 // }
 
-ultraSum(1, 2, 3);
+// ultraSum(1, 2, 3);
+rforEach();
