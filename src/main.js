@@ -1,21 +1,3 @@
-// import count from "./scripts/count";
-// import ultraSum from "./scripts/sum";
-// import logCountClosure from "./scripts/closure";
 //想要webpack打包，必须引入该资源
-// import "./styles/index.css";
-// import "./styles/index.less";
-// import "./styles/index.scss";
-// import "./styles/index.sass";
-// import "./styles/index.styl";
-// import "./styles/iconfont.css";
-import rforEach from "./scripts/forEach";
-
-// console.log(count(2, 1));
-// console.log(sum(1, 2, 3, 4));
-// const logC = logCountClosure();
-// function a() {
-//   console.log("sfhdhf");
-// }
-
-// ultraSum(1, 2, 3);
-rforEach();
+import fakeArr from "./scripts/fakeArray";
+fakeArr(1, 21, 3, 4, 5);
