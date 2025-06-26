@@ -18,6 +18,24 @@
     <span class="iconfont icon-bijiben"></span>
     <span class="iconfont icon-tiaojie"></span>
     <script>
+      Array.prototype.sum = function () {
+        return this.reduce((pre, now) => pre + now);
+      };
+
+      Array.prototype.max = function () {
+        // let max = this[0];
+        // for (let i = 1; i < this.length; i++) {
+        //   if (max < this[i]) {
+        //     max = this[i];
+        //   }
+        // }
+        return Math.max(...this);
+      };
+      const arr = [10, 2, 9, 4, 55];
+      console.log(arr.sum());
+      console.log(arr.max());
+    </script>
+    <!-- <script>
       // 原型prototype
       //公共的属性写到构造函数
       function Star(name, age) {
@@ -37,7 +55,7 @@
 
       console.log(ldh.sing === zxy.sing);
       console.log(Star.prototype);
-    </script>
+    </script> -->
     <!-- <script>
       // let a = 0;
       // function logp() {
