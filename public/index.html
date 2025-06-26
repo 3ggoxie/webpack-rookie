@@ -17,6 +17,27 @@
     <span class="iconfont icon-bingtu"></span>
     <span class="iconfont icon-bijiben"></span>
     <span class="iconfont icon-tiaojie"></span>
+    <script>
+      // 原型prototype
+      //公共的属性写到构造函数
+      function Star(name, age) {
+        this.name = name; //构造函数里的this就是实例对象
+        this.age = age;
+      }
+      //公共的方法写到原型对象上
+      Star.prototype.sing = function () {
+        console.log("原型里的this", this); //原型对象里的this指向也是实例对象
+
+        console.log("我会唱歌");
+      };
+      const ldh = new Star("德华", 60);
+      const zxy = new Star("学友", 63);
+      ldh.sing();
+      zxy.sing();
+
+      console.log(ldh.sing === zxy.sing);
+      console.log(Star.prototype);
+    </script>
     <!-- <script>
       // let a = 0;
       // function logp() {
