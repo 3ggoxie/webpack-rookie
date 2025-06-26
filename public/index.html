@@ -17,7 +17,7 @@
     <span class="iconfont icon-bingtu"></span>
     <span class="iconfont icon-bijiben"></span>
     <span class="iconfont icon-tiaojie"></span>
-    <script>
+    <!-- <script>
       Array.prototype.sum = function () {
         return this.reduce((pre, now) => pre + now);
       };
@@ -34,8 +34,8 @@
       const arr = [10, 2, 9, 4, 55];
       console.log(arr.sum());
       console.log(arr.max());
-    </script>
-    <!-- <script>
+    </script> -->
+    <script>
       // 原型prototype
       //公共的属性写到构造函数
       function Star(name, age) {
@@ -52,10 +52,12 @@
       const zxy = new Star("学友", 63);
       ldh.sing();
       zxy.sing();
+      console.log(ldh.__proto__ === Star.prototype); //对象原型__proto__和[[Prototype]]相同 指向该构造函数的原型对象  只读
 
-      console.log(ldh.sing === zxy.sing);
-      console.log(Star.prototype);
-    </script> -->
+      // console.log(ldh.sing === zxy.sing);
+      // console.log(Star.prototype);
+      console.log(Star.prototype.constructor === Star); //原型对象里的constructor指回了构造函数
+    </script>
     <!-- <script>
       // let a = 0;
       // function logp() {
