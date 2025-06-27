@@ -17,6 +17,63 @@
     <span class="iconfont icon-bingtu"></span>
     <span class="iconfont icon-bijiben"></span>
     <span class="iconfont icon-tiaojie"></span>
+    <script>
+      // //原型继承
+      // const Person = {
+      //   eyes: 2,
+      //   head: 1,
+      // };
+
+      // function Women() {}
+      // // console.log(Women.prototype);
+      // Women.prototype = Person;
+      // Women.prototype.constructor = Women;
+      // const kate = new Women();
+
+      // console.log(kate.eyes);
+      // console.log(Women.prototype);
+      // kate.__proto__.eyes = 3;
+      // console.log(kate);
+      // console.log(kate.eyes);
+      // console.log("????", Person);
+      // //这样继承有问题，women和man 继承的person共用一片内存(Women.prototype === Man.prototype) 不能各自添加各自独有的属性
+      // Person.nose = 1;
+      // console.log(Women.prototype);
+
+      // Women.prototype.baby = function () {
+      //   console.log("baby");
+      // };
+      // function Man() {}
+      // // console.log(Women.prototype);
+      // Man.prototype = Person;
+      // Man.prototype.constructor = Man;
+      // const kevin = new Man();
+      // kevin.baby();
+      // kate.baby();
+
+      //使用构造函数 可以实现不同的对象有各自的属性
+      function Person() {
+        this.eyes = 2;
+        this.nose = 1;
+      }
+
+      function Women() {}
+      Women.prototype = new Person();
+      Women.prototype.constructor = Women;
+      Women.prototype.baby = function () {
+        console.log("baby");
+      };
+      console.log(Women.prototype);
+      const anny = new Women();
+      console.log(anny.eyes);
+      anny.baby();
+      function Man() {}
+      Man.prototype = new Person();
+      Man.prototype.constructor = Man;
+      const max = new Man();
+      max.baby(); //没有这个方法
+    </script>
+
     <!-- <script>
       Array.prototype.sum = function () {
         return this.reduce((pre, now) => pre + now);
@@ -35,7 +92,7 @@
       console.log(arr.sum());
       console.log(arr.max());
     </script> -->
-    <script>
+    <!-- <script>
       // 原型prototype
       //公共的属性写到构造函数
       function Star(name, age) {
@@ -57,7 +114,7 @@
       // console.log(ldh.sing === zxy.sing);
       // console.log(Star.prototype);
       console.log(Star.prototype.constructor === Star); //原型对象里的constructor指回了构造函数
-    </script>
+    </script> -->
     <!-- <script>
       // let a = 0;
       // function logp() {
