@@ -6,7 +6,8 @@
     <title>我的webpack</title>
   </head>
   <body>
-    <h1>我的webpack</h1>
+    <button id="btn">禁用两秒</button>
+    <!-- <h1>我的webpack</h1>
     <div class="box1"></div>
     <div class="box2"></div>
     <div class="box3"></div>
@@ -16,8 +17,149 @@
     <span class="iconfont icon-baocun"></span>
     <span class="iconfont icon-bingtu"></span>
     <span class="iconfont icon-bijiben"></span>
-    <span class="iconfont icon-tiaojie"></span>
+    <span class="iconfont icon-tiaojie"></span> -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
+      const obj = {
+        name: "ssg",
+      };
+      // function fm() {
+      //   console.log(this);
+      // }
+      // // fm.call(obj);
+      // // fm.apply(obj);
+      // const fn = fm.bind(obj);
+      // fn();
+      // document.getElementById("btn").addEventListener("click", function () {
+      //   this.disabled = true;
+      //   setTimeout(() => {
+      //     this.disabled = false;
+      //     console.log(this);
+      //   }, 2000);
+      // });
+      //箭头函数不能通过以上三种方法改变this指向，永远向上寻找父元素的this指向
+      const fn = () => {
+        console.log(this);
+      };
+      fn.bind(obj)();
+    </script>
+
+    <!-- <script>
+      //异常处理
+      function fn(a, b) {
+        debugger; //打断点
+        if (!a || !b) {
+          // throw "缺少参数";
+          throw new Error("缺少参数");
+        }
+        return a + b;
+      }
+      console.log(fn());
+    </script> -->
+    <!-- <script>
+      //深拷贝
+      //JSON.stringify()
+      const obj = {
+        uname: "ssg",
+        age: 18,
+        family: {
+          mom: "cdf",
+        },
+        hobby: ["唱", "跳", "rap"],
+      };
+
+      let o = JSON.parse(JSON.stringify(obj));
+      console.log(o);
+      o.age = 20;
+      o.hobby[0] = "篮球";
+      o.family.mom = "ccc";
+      console.log(obj);
+      console.log(Array instanceof Object);
+      // //loadash
+      // const obj = {
+      //   uname: "ssg",
+      //   age: 18,
+      //   family: {
+      //     mom: "cdf",
+      //   },
+      //   hobby: ["唱", "跳", "rap"],
+      // };
+
+      // let o = _.cloneDeep(obj);
+      // console.log(o);
+      // o.age = 20;
+      // o.hobby[0] = "篮球";
+      // o.family.mom = "ccc";
+      // console.log(obj);
+      // console.log(Array instanceof Object);
+
+      // //递归实现 简易版
+      // const obj = {
+      //   uname: "ssg",
+      //   age: 18,
+      //   family: {
+      //     mom: "cdf",
+      //   },
+      //   hobby: ["唱", "跳", "rap"],
+      // };
+
+      // let o = {};
+      // function deepCopy(newObj, oldObj) {
+      //   for (let key in oldObj) {
+      //     if (oldObj[key] instanceof Array) {
+      //       newObj[key] = [];
+      //       deepCopy(newObj[key], oldObj[key]);
+      //     } else if (oldObj[key] instanceof Object) {
+      //       newObj[key] = {};
+      //       deepCopy(newObj[key], oldObj[key]);
+      //     } else {
+      //       newObj[key] = oldObj[key];
+      //     }
+      //   }
+      // }
+      // deepCopy(o, obj);
+      // console.log(o);
+      // o.age = 20;
+      // o.hobby[0] = "篮球";
+      // o.family.mom = "ccc";
+      // console.log(obj);
+      // console.log(Array instanceof Object);
+
+      // let a = 2;
+      // let b = a;
+      // b = 3;
+      // console.log(a);
+      // console.log(b);
+
+      // const obj = {
+      //   uname: "ssg",
+      //   age: 18,
+      //   family: {
+      //     mom: "cdf",
+      //   },
+      // };
+      // const o = obj;
+      // console.log(o);
+      // o.age = 24;
+      // console.log(o);
+      // console.log(obj);
+      //浅拷贝
+      //空对象+展开运算符
+      // const o = { ...obj };
+      // console.log(o);
+      // o.age = 24;
+      // console.log(o);
+      // console.log(obj);
+      //assign方法
+      // const o = {};
+      // Object.assign(o, obj);
+      // console.log(o);
+      // o.age = 24;
+      // o.family.mom = "ccc";
+      // console.log(o);
+      // console.log(obj);
+    </script> -->
+    <!-- <script>
       // //原型继承
       // const Person = {
       //   eyes: 2,
@@ -51,32 +193,33 @@
       // kevin.baby();
       // kate.baby();
 
-      //使用构造函数 可以实现不同的对象有各自的属性
-      function Person() {
-        this.eyes = 2;
-        this.nose = 1;
-      }
+      // //使用构造函数 可以实现不同的对象有各自的属性
+      // function Person() {
+      //   this.eyes = 2;
+      //   this.nose = 1;
+      // }
 
-      function Women() {}
-      Women.prototype = new Person();
-      Women.prototype.constructor = Women;
-      Women.prototype.baby = function () {
-        console.log("baby");
-      };
-      console.log(Women.prototype);
-      const anny = new Women();
-      console.log(anny.eyes);
-      anny.baby();
-      function Man() {}
-      Man.prototype = new Person();
-      Man.prototype.constructor = Man;
-      const max = new Man();
-      // max.baby(); //没有这个方法
-      console.log(anny instanceof Women);
-      console.log(anny instanceof Person);
-      console.log(anny instanceof Object);
-      console.log(anny instanceof Array);
-    </script>
+      // function Women() {}
+      // Women.prototype = new Person();
+      // Women.prototype.constructor = Women;
+      // Women.prototype.baby = function () {
+      //   console.log("baby");
+      // };
+      // console.log(Women.prototype);
+      // const anny = new Women();
+      // console.log(anny.eyes);
+      // anny.baby();
+      // function Man() {}
+      // Man.prototype = new Person();
+      // Man.prototype.constructor = Man;
+      // const max = new Man();
+      // // max.baby(); //没有这个方法
+      // console.log(anny instanceof Women);
+      // console.log(anny instanceof Person);
+      // console.log(anny instanceof Object);
+      // console.log(anny instanceof Array);
+
+    </script> -->
 
     <!-- <script>
       Array.prototype.sum = function () {
