@@ -6,7 +6,18 @@
     <title>我的webpack</title>
   </head>
   <body>
-    <button id="btn">禁用两秒</button>
+    <div
+      class="zone"
+      style="
+        background-color: wheat;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+      "
+    >
+      1
+    </div>
+    <!-- <button id="btn">禁用两秒</button> -->
     <!-- <h1>我的webpack</h1>
     <div class="box1"></div>
     <div class="box2"></div>
@@ -20,6 +31,39 @@
     <span class="iconfont icon-tiaojie"></span> -->
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
+      //防抖debounce
+      //lodash实现
+      // const div = document.querySelector(".zone");
+      // let i = 1;
+      // function move() {
+      //   console.log("sss");
+
+      //   div.innerHTML = i++;
+      // }
+
+      // div.addEventListener("mousemove", _.debounce(move, 500));
+      //手写防抖
+      const div = document.querySelector(".zone");
+      let i = 1;
+      function move() {
+        div.innerHTML = i++;
+      }
+      function deBounce(fn, wait) {
+        let timer = null; // 通过闭包保存定时器ID
+
+        return function (...args) {
+          const context = this;
+
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            fn.apply(context, args);
+            console.log(...args);
+          }, wait);
+        };
+      }
+      div.addEventListener("mousemove", deBounce(move, 25));
+    </script>
+    <!-- <script>
       const obj = {
         name: "ssg",
       };
@@ -42,7 +86,7 @@
         console.log(this);
       };
       fn.bind(obj)();
-    </script>
+    </script> -->
 
     <!-- <script>
       //异常处理
