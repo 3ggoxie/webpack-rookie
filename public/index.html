@@ -31,6 +31,41 @@
     <span class="iconfont icon-tiaojie"></span> -->
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
+      //节流throttle
+      // //lodash实现
+      // const div = document.querySelector(".zone");
+      // let i = 1;
+      // function move() {
+      //   console.log("sss");
+
+      //   div.innerHTML = i++;
+      // }
+
+      // div.addEventListener("mousemove", _.throttle(move, 5000));
+      //手写节流;
+      const div = document.querySelector(".zone");
+      let i = 1;
+      function move() {
+        div.innerHTML = i++;
+      }
+      function throttle(fn, wait) {
+        let timer = null;
+
+        return function (...args) {
+          const context = this;
+          if (!timer) {
+            fn.apply(context, args);
+            timer = setTimeout(() => {
+              // clearTimeout(timer);
+              //在 setTimeout中无法清除定时器，因为定时器还在运作，所以应该用timer=null
+              timer = null;
+            }, wait);
+          }
+        };
+      }
+      div.addEventListener("mousemove", throttle(move, 5000));
+    </script>
+    <!-- <script>
       //防抖debounce
       //lodash实现
       // const div = document.querySelector(".zone");
@@ -53,16 +88,15 @@
 
         return function (...args) {
           const context = this;
-
-          clearTimeout(timer);
+          if (timer) clearTimeout(timer);
           timer = setTimeout(() => {
             fn.apply(context, args);
             console.log(...args);
           }, wait);
         };
       }
-      div.addEventListener("mousemove", deBounce(move, 25));
-    </script>
+      div.addEventListener("mousemove", deBounce(move, 5000));
+    </script> -->
     <!-- <script>
       const obj = {
         name: "ssg",
